@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Title</title>
+</head>
+<body>
+   <div>
+       用户：<input type="text" id="name"/>
+       密码:<input type="password" id="password"/>
+       <input type="button" onclick="tijiao();" value="提交"/>
+   </div>
+</body>
+<script type="text/javascript" src="/js/jquery-3.2.1.js"></script>
+<script>
+    $(function(){
+       alert(123);
+    });
+   function tijiao() {
+       var data={};
+       data.name=$("#name").val();
+       data.password=$("#password").val();
+     $.ajax({
+         type:"POST",
+         url:"/home/index",
+         data:data,
+         success:function (res) {
+             if(res=="验证通过"){
+                 window.location.href="/home/detail";
+             }
+             alert(123);
+         },
+         error:function (){
+             alert(456);
+         }
+     });
+   }
+</script>
+</html>
